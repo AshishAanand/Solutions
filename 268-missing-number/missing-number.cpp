@@ -2,16 +2,12 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
-
         std::sort(nums.begin(), nums.end());
-
-        int var = 0;
+        int expectedSum = n*(n+1)/2;
+        int actualSum = 0;
         for(int i = 0; i < n; i++){
-            if(nums[i] != i){
-                return i;
-            }
+            actualSum += nums[i];
         }
-
-        return n;
+        return expectedSum - actualSum;
     }
 };
